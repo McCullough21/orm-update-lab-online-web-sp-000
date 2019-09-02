@@ -41,11 +41,8 @@ def save
   end
 end
 
-def self.create(id = nil, name, grade)
-  student = self.new
-  student.id = id
-  student.name = name
-  student.grade = grade
+def self.create(name, grade)
+  student = self.new(name, grade)
   student.save
   student
 end
