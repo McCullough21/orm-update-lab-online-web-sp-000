@@ -4,12 +4,12 @@ class Student
 
 attr_accessor :id, :name, :grade
 
-# def initialize(id= nil, name, grade)
-#   @id = id
-#   @name = name
-#   @grade = grade
-#   self.save
-# end
+def initialize(id= nil, name, grade)
+  @id = id
+  @name = name
+  @grade = grade
+  self.save
+end
 
 def self.create_table
   sql = <<-SQL
