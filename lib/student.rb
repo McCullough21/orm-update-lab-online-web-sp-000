@@ -57,6 +57,7 @@ def self.new_from_db(row)
   student.name = row[1]
   student.grade = row[2]
   student.save
+  student
 end
 
   # Remember, you can access your database connection anywhere in this class
