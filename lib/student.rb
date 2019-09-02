@@ -44,7 +44,7 @@ end
 
 def self.create(id= nil, name, grade)
   student = self.new
-  student.id = id 
+  student.id = id
   student.name = name
   student.grade = grade
   student.save
