@@ -4,16 +4,16 @@ class Student
 
 attr_accessor :id, :name, :grade
 
-def initialize(id= nil, name, grade)
-  @id = id
-  @name = name
-  @grade = grade
-  self.save
-end
+# def initialize(id= nil, name, grade)
+#   @id = id
+#   @name = name
+#   @grade = grade
+#   self.save
+# end
 
 def self.create_table
   sql = <<-SQL
-    CREATE TABEL students (
+    CREATE TABEL students IF NOT EXISTS (
       id INTEGER PRIMARY KEY,
       name TEXT,
       grade TEXT
@@ -42,9 +42,18 @@ def save
   end
 end
 
-def self.create(name, grade)
+def self.create(id= nil, name, grade)
   student = self.new(name, grade)
 end
+
+def self.new_from_db(row)
+  student = self.new
+  student.id = row[0]
+  student.name = row[1]
+  student.grade = row[2]
+  student.save
+end
+
   # Remember, you can access your database connection anywhere in this class
   #  with DB[:conn]
 
